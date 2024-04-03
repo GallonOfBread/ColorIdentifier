@@ -40,6 +40,7 @@
   <style>
     body {
       margin: 0px;
+      background-color: black;
     }
     div.row, div.table, div.header {
       display: block;
@@ -50,7 +51,6 @@
     }
     div.table {
       overflow-y: scroll;
-      height: 800px;
       font-size: 0px;
     }
     div {
@@ -77,7 +77,8 @@
     button.update {
       width:100%;
       background-color: lightGray;
-      padding: 0px;
+      color: black;
+      padding: 3px 0px;
       margin: 0px;
       border: 0px;
       font-family: "Cabin";
@@ -233,7 +234,12 @@
   
       return results;
     }
+    function resizeTable() {
+      document.querySelector("div.table").style.height = String(window.innerHeight - 80) + "px";
+    }
+    addEventListener("resize", (event) => resizeTable());
     biasLevel = "";
+    resizeTable();
     updateBias(document.getElementById("mi"));
     updateColors()
   </script>
